@@ -10,6 +10,7 @@
 <meta property="og:image" content="https://shromarketing.github.io/maxitolog/img/hero.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Роман Байер">
 <meta name="theme-color" content="#0c0d10">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -156,6 +157,20 @@ h2{font-family:var(--display);font-weight:600;font-size:clamp(30px,3.6vw,52px);l
 .prof-card .verdict p{color:var(--muted);font-size:15px;max-width:26ch}
 .prof-card .fade{animation:fadeUp .5s var(--ease)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ведущий */
+.author-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:72px;align-items:center}
+.author-photo{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1/1;background:var(--surface)}
+.author-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.03);transition:transform 1.4s var(--ease)}
+.author-photo:hover img{transform:scale(1.03)}
+.author-role{margin-top:16px;font-size:18px;color:var(--muted)}
+.author-role b{color:var(--accent);font-weight:500}
+.author-facts{list-style:none;margin-top:40px;display:grid;gap:22px}
+.author-facts li{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:baseline;font-size:17px;line-height:1.45}
+.author-facts li b{font-family:var(--display);font-weight:600;font-size:26px;letter-spacing:-.03em;color:var(--accent)}
+.author-quote{margin-top:40px;padding:24px 28px;border-radius:var(--r-sm);background:var(--surface);border:1px solid var(--line);font-size:19px;line-height:1.45}
+.author-quote q{quotes:"«" "»"}
+.author-quote span{display:block;margin-top:10px;font-size:14px;color:var(--dim)}
 
 /* программа */
 .prog-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
@@ -321,6 +336,8 @@ fieldset.f{border:0}
   .hero-grid{min-height:0}
   .hero-visual{max-width:520px}
   .prog-aside{position:static}
+  .author-grid{grid-template-columns:1fr;gap:40px}
+  .author-photo{max-width:520px}
   .timeline{grid-template-columns:1fr 1fr;row-gap:40px}
   .timeline .rail{display:none}
 }
@@ -373,6 +390,7 @@ fieldset.f{border:0}
     </a>
     <nav class="nav-links" aria-label="Разделы">
       <a href="#news">Что случилось</a>
+      <a href="#author">Ведущий</a>
       <a href="#program">Программа</a>
       <a href="#calc">Окупаемость</a>
       <a href="#price">Тариф</a>
@@ -464,6 +482,25 @@ fieldset.f{border:0}
       </div>
     </div>
     <div class="prof-card is-max rv" id="profCard" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ================= ВЕДУЩИЙ ================= -->
+<section class="sec" id="author">
+  <div class="wrap author-grid">
+    <div class="author-photo rv">
+      <img src="img/author.jpg" alt="Роман Байер с микрофоном у флипчарта" width="1100" height="1097" loading="lazy">
+    </div>
+    <div>
+      <h2 class="rv">Ведёт курс Роман Байер</h2>
+      <p class="author-role rv" style="--i:1">Макситолог <b>№ 1 в России</b>. По версии этого сайта.</p>
+      <ul class="author-facts">
+        <li class="rv" style="--i:1"><b>2</b><span>устройства в руках одновременно: микрофон и телефон. Так выглядит мультиканальность.</span></li>
+        <li class="rv" style="--i:2"><b>4</b><span>года назад спросил у зала «Сайт?». Теперь у курса есть сайт. Всё по плану.</span></li>
+        <li class="rv" style="--i:3"><b>0</b><span>макситологов было в России до него. Конкуренция пока не беспокоит.</span></li>
+      </ul>
+      <p class="author-quote rv" style="--i:4"><q>Директ настраивали все. Рекламу в MAX пока никто. Значит, я лучший.</q><span>Роман Байер, ведущий курса</span></p>
+    </div>
   </div>
 </section>
 
@@ -891,7 +928,13 @@ fieldset.f{border:0}
     x.fillText('Стаж работы с рекламой в MAX: с момента её запуска.', 130, y0 + 140);
 
     const d = new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
-    x.fillStyle = '#6f727a'; x.font = '400 24px "JetBrains Mono"';
+    x.fillStyle = '#eceae4'; x.font = 'italic 500 34px Onest';
+    x.fillText('Р. Байер', 820, H - 190);
+    x.strokeStyle = 'rgba(236,234,228,.35)'; x.lineWidth = 1.5;
+    x.beginPath(); x.moveTo(820, H - 170); x.lineTo(1150, H - 170); x.stroke();
+    x.fillStyle = '#6f727a'; x.font = '400 22px Onest';
+    x.fillText('ведущий курса', 820, H - 138);
+    x.font = '400 24px "JetBrains Mono"';
     x.fillText(d.toUpperCase() + '   МАКСИТОЛОГ.РФ', 130, H - 130);
 
     // печать
